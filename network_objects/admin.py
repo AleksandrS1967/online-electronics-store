@@ -1,5 +1,6 @@
 from django.contrib import admin
-
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from django.urls import reverse
 from network_objects.models import Product, Supplier
 
@@ -15,6 +16,9 @@ class UserAdmin(admin.ModelAdmin):
 
     def purveyor_link(self, obj):
         if obj.purveyor:
-            return reverse('admin:network_objects_supplier_change', args=(f'{obj.purveyor.pk}'))
+            return format_html('<a href="{0}">{1}</a>'.format(
+                reverse('admin:network_objects_supplier_change', args=(f'{obj.purveyor.pk}')), obj.purveyor))
         return obj.purveyor
+
+    purveyor_link.short_description = "ссылка на поставщика"
 
