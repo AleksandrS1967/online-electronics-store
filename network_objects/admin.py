@@ -18,8 +18,9 @@ class UserAdmin(admin.ModelAdmin):
 
     def purveyor_link(self, obj):
         if obj.purveyor:
-            return format_html('<a href="{0}">{1}</a>'.format(
-                reverse('admin:network_objects_supplier_change', args=(f'{obj.purveyor.pk}')), obj.purveyor))
+            return format_html('<a href="{0}">{1} {2}</a>'.format(
+                reverse('admin:network_objects_supplier_change', args=(f'{obj.purveyor.pk}')), obj.purveyor,
+                obj.purveyor.pk))
         return obj.purveyor
 
     def clean_debt(self, request, queryset):
@@ -31,4 +32,3 @@ class UserAdmin(admin.ModelAdmin):
     clean_debt.short_description = 'Очистить задолженность'
 
     purveyor_link.short_description = "ссылка на поставщика"
-
