@@ -9,6 +9,7 @@ from network_objects.models import Product, Supplier
 class UserAdmin(admin.ModelAdmin):
     list_display = ("pk", "name")
     actions = ['clean_debt']
+    list_filter = ['city']
 
 
 @admin.register(Supplier)
