@@ -5,6 +5,7 @@ from network_objects.models import Product, Supplier, Contacts
 
 
 class IsCityCountryFilter(admin.SimpleListFilter):
+    """ Класс для фильтрации поставщиков по городам и странам. """
     title = "CityCountry"
     parameter_name = "city_country"
 
@@ -56,7 +57,7 @@ class SupplierAdmin(admin.ModelAdmin):
             return obj.contacts.country
         return obj.contacts
 
-    def purveyor_link(self, obj):
+    def purveyor_link(self, obj):  # ссылка на поставщика
         if obj.purveyor:
             return format_html(
                 '<a href="{0}">{1} {2}</a>'.format(
@@ -70,7 +71,7 @@ class SupplierAdmin(admin.ModelAdmin):
             )
         return obj.purveyor
 
-    def clean_debt(self, request, queryset):
+    def clean_debt(self, request, queryset):  # очищение задолженности у поставщика action
         for supplier in queryset:
             supplier.debt = 0
             supplier.save()
