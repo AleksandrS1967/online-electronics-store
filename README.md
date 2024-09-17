@@ -1,5 +1,4 @@
-# online-electronics-store
-
+# electronics-retail-chain
 
 Онлайн платформа-торговой сети электроники (веб-приложение с API-интерфейсом и админ-панелью)
 ___
@@ -45,5 +44,4 @@ ___
   Supplier поле supplier_level (уровень поставщика в цепочке поставок).
 
 Скрин задания:
-
-![img.png](img.png)
+![scrin](https://sun9-78.userapi.com/impg/quDhDIySPi9lHqjLL4M5ee52eLnzhDDO1oXGXQ/Mb8uhL5Jz-k.jpg?size=753x2160&quality=95&sign=b627ca12d1d6eb8cd5295291910d72d9&type=album)

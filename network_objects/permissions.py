@@ -6,4 +6,7 @@ class NotUpdate(permissions.BasePermission):
     """Запрет на обновление"""
 
     def has_permission(self, request, view):
-        raise ValidationError('запрещено обновлять поле с долгом по API - воспользуйтесь админ панелью!..')
+        raise ValidationError(
+            "запрещено обновлять поле с долгом по API - "
+            "воспользуйтесь админ панелью!.."
+        )

@@ -1,8 +1,10 @@
-from django.shortcuts import render
-
-from rest_framework.viewsets import ModelViewSet, generics
+from rest_framework.viewsets import ModelViewSet
 from network_objects.models import Product, Supplier, Contacts
-from network_objects.serializers import ProductSerializer, SupplierSerializer, ContactsSerializer
+from network_objects.serializers import (
+    ProductSerializer,
+    SupplierSerializer,
+    ContactsSerializer,
+)
 from network_objects.permissions import NotUpdate
 
 
@@ -26,10 +28,9 @@ class SupplierViewSet(ModelViewSet):
             purveyor = supplier.purveyor
             supplier.supplier_level = purveyor.supplier_level + 1
             supplier.save()
-            print(supplier)
 
     def get_permissions(self):
         if self.action in ["partial_update", "update"]:
-            if 'debt' in list(self.request.data):
-                self.permission_classes = (NotUpdate, )
+            if "debt" in list(self.request.data):
+                self.permission_classes = (NotUpdate,)
         return super().get_permissions()
